@@ -2,7 +2,6 @@ function contarOvejas(ovejas) {
   return ovejas.filter(({color, name}) => {
     return color === "rojo" && name.toLowerCase().includes("a") && name.toLowerCase().includes("n")
   })
-
 }
 
 const ovejas = [
