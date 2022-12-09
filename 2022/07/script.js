@@ -1,15 +1,10 @@
 function getGiftsToRefill(a1, a2, a3) {
-    let set = new Set(a1.concat(a2).concat(a3));
-
-    return Array.from(set).filter((gift) => {
-        if (
-            (a1.includes(gift) && !a2.includes(gift) && !a3.includes(gift)) ||
-            (!a1.includes(gift) && a2.includes(gift) && !a3.includes(gift)) ||
-            (!a1.includes(gift) && !a2.includes(gift) && a3.includes(gift))
-        ) {
-            return gift;
-        }
-    });
+    return Array.from(new Set(
+        a1
+        .filter((gift) => !a2.includes(gift) && !a3.includes(gift))
+        .concat(a2.filter((gift) => !a1.includes(gift) && !a3.includes(gift)))
+        .concat(a3.filter((gift) => !a1.includes(gift) && !a2.includes(gift)))
+    ));
 }
 
 console.log("test");
