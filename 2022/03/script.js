@@ -1,3 +1,4 @@
+// first solution
 function distributeGifts(packOfGifts, reindeers) {
   let packOfGiftsSize = packOfGifts.reduce(
     (acc, gift) => (acc += gift.length),
@@ -9,6 +10,11 @@ function distributeGifts(packOfGifts, reindeers) {
   );
 
   return Math.floor(reindeersSize / packOfGiftsSize);
+}
+
+// Another solution
+function distributeGifts(packOfGifts, reindeers) {
+  return Math.floor(reindeers.join("").length * 2 / packOfGifts.join("").length);
 }
 
 const packOfGifts = ["book", "doll", "ball"];
